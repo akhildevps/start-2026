@@ -434,46 +434,13 @@ const AdminDashboard = () => {
                                             />
                                         </div>
 
-                                        {/* Checkboxes */}
-                                        <div className="pt-2 space-y-2 border-t border-gray-600">
-                                            <label className="flex items-center text-xs text-gray-300 cursor-pointer hover:text-white">
-                                                <input
-                                                    type="checkbox"
-                                                    checked={sec.hideFromMenu || false}
-                                                    onChange={(e) => {
-                                                        const updated = masterConfig.sections.map(s => 
-                                                            s.name === sec.name ? {...s, hideFromMenu: e.target.checked} : s
-                                                        );
-                                                        setMasterConfig({...masterConfig, sections: updated});
-                                                    }}
-                                                    className="mr-2 w-3 h-3"
-                                                />
-                                                Hide from Menu
-                                            </label>
-                                            <label className="flex items-center text-xs text-gray-300 cursor-pointer hover:text-white">
-                                                <input
-                                                    type="checkbox"
-                                                    checked={sec.hidden || false}
-                                                    onChange={(e) => {
-                                                        const updated = masterConfig.sections.map(s => 
-                                                            s.name === sec.name ? {...s, hidden: e.target.checked} : s
-                                                        );
-                                                        setMasterConfig({...masterConfig, sections: updated});
-                                                    }}
-                                                    className="mr-2 w-3 h-3"
-                                                />
-                                                Hide Completely
-                                            </label>
-                                        </div>
-
                                         {/* Save Button */}
                                         <button
                                             onClick={async () => {
                                                 await masterConfigAPI.updateSection(sec.name, { 
                                                     displayName: sec.displayName,
                                                     menuName: sec.menuName,
-                                                    hidden: sec.hidden,
-                                                    hideFromMenu: sec.hideFromMenu
+                                                    hidden: sec.hidden
                                                 });
                                                 setSuccessMsg(`${sec.name} section updated!`);
                                                 fetchAllData();
