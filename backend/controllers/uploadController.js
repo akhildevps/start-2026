@@ -1,33 +1,11 @@
 const multer = require('multer');
+const cloudinary = require('cloudinary').v2;
+const stream = require('stream');
 const path = require('path');
-const fs = require('fs');
 
-// Configure storage - images folder is at project root (start-2026/images)
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        // From backend/controllers/ go up 2 levels to project root, then into images
-        const dir = path.join(__dirname, '../../images');
-        
-        // Create images folder if it doesn't exist
-        if (!fs.existsSync(dir)) {
-            fs.mkdirSync(dir, { recursive: true });
-        }
-        
-        cb(null, dir);
-    },
-    filename: (req, file, cb) => {
-        // Generate unique filename with timestamp and random ID
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-        const extension = path.extname(file.originalname);
-        const name = file.originalname
-            .toLowerCase()
-            .replace(/[^a-z0-9]/g, '-')
-            .replace(/-+/g, '-')
-            .slice(0, 30);
-        
-        cb(null, `${name}-${uniqueSuffix}${extension}`);
-    }
-});
+// Configure storage - Use Memory Storage for Vercel/Serverless
+// We cannot save to disk on Vercel, so we keep the file in memory buffer
+const storage = multer.memoryStorage();
 
 // File filter - only allow images
 const fileFilter = (req, file, cb) => {
@@ -51,7 +29,7 @@ const upload = multer({
 });
 
 // Upload handler controller
-const uploadImage = (req, res) => {
+const uploadImage = async (req, res) => {
     try {
         if (!req.file) {
             return res.status(400).json({ 
@@ -60,16 +38,41 @@ const uploadImage = (req, res) => {
             });
         }
 
-        // Build full URL so frontend can preview directly (e.g. http://localhost:5000/images/abc.jpg)
-        const imageUrlPath = `/images/${req.file.filename}`;
-        const fullUrl = `${req.protocol}://${req.get('host')}${imageUrlPath}`;
+        // Check for Cloudinary credentials
+        if (!process.env.CLOUDINARY_CLOUD_NAME || !process.env.CLOUDINARY_API_KEY || !process.env.CLOUDINARY_API_SECRET) {
+            throw new Error('Cloudinary credentials missing in .env');
+        }
+
+        // 1. Configure Cloudinary
+        cloudinary.config({
+            cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+            api_key: process.env.CLOUDINARY_API_KEY,
+            api_secret: process.env.CLOUDINARY_API_SECRET
+        });
+
+        // 2. Upload to Cloudinary using a stream
+        const uploadToCloudinary = () => {
+            return new Promise((resolve, reject) => {
+                const uploadStream = cloudinary.uploader.upload_stream(
+                    { folder: 'sanctuary-cove' },
+                    (error, result) => {
+                        if (result) resolve(result);
+                        else reject(error);
+                    }
+                );
+                const bufferStream = new stream.PassThrough();
+                bufferStream.end(req.file.buffer);
+                bufferStream.pipe(uploadStream);
+            });
+        };
+
+        const result = await uploadToCloudinary();
 
         res.status(200).json({
             success: true,
             message: 'Image uploaded successfully',
-            imageUrl: fullUrl,
-            path: imageUrlPath,
-            filename: req.file.filename
+            imageUrl: result.secure_url,
+            fileId: result.public_id
         });
     } catch (error) {
         console.error('Upload error:', error);

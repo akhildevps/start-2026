@@ -18,6 +18,32 @@
     
     <!-- External CSS -->
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Enhanced Carousel Styles */
+        .carousel-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out;
+            z-index: 1;
+        }
+        .carousel-slide.active {
+            opacity: 1;
+            z-index: 10;
+        }
+        
+        /* Staggered Content Animations */
+        .slide-content-enter {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .active .slide-content-enter { opacity: 1; transform: translateY(0); }
+        
+        .delay-100 { transition-delay: 0.3s; }
+        .delay-200 { transition-delay: 0.5s; }
+        .delay-300 { transition-delay: 0.7s; }
+    </style>
 </head>
 <body class="bg-white">
     <!-- Navigation Bar -->
@@ -58,81 +84,93 @@
     </nav>
 
     <!-- Hero Slider -->
-    <section id="home" class="relative h-screen overflow-hidden">
+    <section id="home" class="relative h-screen w-full overflow-hidden bg-gray-900">
         <!-- Slide 1 -->
-        <div class="carousel-slide active h-full">
-            <div class="absolute inset-0 bg-gradient-to-b from-blue-800 via-blue-600 to-teal-400">
-                <img src="images/hero-beach.jpg" alt="Tropical Beach" class="w-full h-full object-cover opacity-70">
+        <div class="carousel-slide active">
+            <div class="absolute inset-0">
+                <img src="images/hero-beach.jpg" alt="Tropical Beach" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/70"></div>
             </div>
-            <div class="carousel-overlay absolute inset-0"></div>
-            <div class="relative h-full flex items-center justify-center text-center">
-                <div class="fade-in-up">
-                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <div class="relative h-full flex items-center justify-center text-center px-4">
+                <div class="max-w-5xl mx-auto">
+                    <h1 class="slide-content-enter delay-100 text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight tracking-tight drop-shadow-lg font-serif">
                         Escape to Paradise
                     </h1>
-                    <p class="text-lg md:text-xl text-gray-100 mb-8 max-w-2xl mx-auto font-light">
+                    <p class="slide-content-enter delay-200 text-lg md:text-2xl text-gray-100 mb-10 max-w-2xl mx-auto font-light tracking-wide drop-shadow-md">
                         Experience unparalleled luxury on our private island sanctuary
                     </p>
-                    <button class="btn-secondary" onclick="nextSlide()">Explore</button>
+                    <div class="slide-content-enter delay-300">
+                        <button class="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white text-lg font-semibold rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 shadow-lg" onclick="document.getElementById('accommodations').scrollIntoView({ behavior: 'smooth' })">
+                            Discover More
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Slide 2 -->
-        <div class="carousel-slide h-full">
-            <div class="absolute inset-0 bg-gradient-to-b from-emerald-700 via-teal-600 to-blue-300">
-                <img src="images/hero-beach.jpg" alt="Luxury Pool" class="w-full h-full object-cover opacity-70">
+        <div class="carousel-slide">
+            <div class="absolute inset-0">
+                <img src="images/hero-beach.jpg" alt="Luxury Pool" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/70"></div>
             </div>
-            <div class="carousel-overlay absolute inset-0"></div>
-            <div class="relative h-full flex items-center justify-center text-center">
-                <div class="fade-in-up">
-                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <div class="relative h-full flex items-center justify-center text-center px-4">
+                <div class="max-w-5xl mx-auto">
+                    <h1 class="slide-content-enter delay-100 text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight tracking-tight drop-shadow-lg font-serif">
                         World-Class Amenities
                     </h1>
-                    <p class="text-lg md:text-xl text-gray-100 mb-8 max-w-2xl mx-auto font-light">
+                    <p class="slide-content-enter delay-200 text-lg md:text-2xl text-gray-100 mb-10 max-w-2xl mx-auto font-light tracking-wide drop-shadow-md">
                         Infinity pools, world-renowned spa, and gourmet dining await
                     </p>
-                    <button class="btn-secondary" onclick="nextSlide()">Explore</button>
+                    <div class="slide-content-enter delay-300">
+                        <button class="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white text-lg font-semibold rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 shadow-lg" onclick="document.getElementById('amenities').scrollIntoView({ behavior: 'smooth' })">
+                            Explore Amenities
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Slide 3 -->
-        <div class="carousel-slide h-full">
-            <div class="absolute inset-0 bg-gradient-to-b from-purple-700 via-pink-600 to-orange-300">
-                <img src="images/activities.jpg" alt="Sunset Dinner" class="w-full h-full object-cover opacity-70">
+        <div class="carousel-slide">
+            <div class="absolute inset-0">
+                <img src="images/activities.jpg" alt="Sunset Dinner" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-black/70"></div>
             </div>
-            <div class="carousel-overlay absolute inset-0"></div>
-            <div class="relative h-full flex items-center justify-center text-center">
-                <div class="fade-in-up">
-                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <div class="relative h-full flex items-center justify-center text-center px-4">
+                <div class="max-w-5xl mx-auto">
+                    <h1 class="slide-content-enter delay-100 text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight tracking-tight drop-shadow-lg font-serif">
                         Culinary Excellence
                     </h1>
-                    <p class="text-lg md:text-xl text-gray-100 mb-8 max-w-2xl mx-auto font-light">
+                    <p class="slide-content-enter delay-200 text-lg md:text-2xl text-gray-100 mb-10 max-w-2xl mx-auto font-light tracking-wide drop-shadow-md">
                         Michelin-inspired cuisine with locally-sourced, sustainable ingredients
                     </p>
-                    <button class="btn-secondary" onclick="nextSlide()">Explore</button>
+                    <div class="slide-content-enter delay-300">
+                        <button class="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/30 text-white text-lg font-semibold rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 shadow-lg" onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth' })">
+                            Reserve a Table
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Carousel Controls -->
-        <button onclick="prevSlide()" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-40 text-white hover:text-gray-200 transition-smooth">
+        <button onclick="prevSlide()" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-40 p-3 rounded-full bg-black/20 hover:bg-black/40 backdrop-blur-sm text-white transition-all duration-300 group">
             <svg class="w-8 h-8 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7" class="group-hover:-translate-x-1 transition-transform duration-300"></path>
             </svg>
         </button>
-        <button onclick="nextSlide()" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-40 text-white hover:text-gray-200 transition-smooth">
+        <button onclick="nextSlide()" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-40 p-3 rounded-full bg-black/20 hover:bg-black/40 backdrop-blur-sm text-white transition-all duration-300 group">
             <svg class="w-8 h-8 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" class="group-hover:translate-x-1 transition-transform duration-300"></path>
             </svg>
         </button>
 
         <!-- Carousel Indicators -->
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-40 flex space-x-2">
-            <button onclick="goToSlide(0)" class="carousel-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-smooth active"></button>
-            <button onclick="goToSlide(1)" class="carousel-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-smooth"></button>
-            <button onclick="goToSlide(2)" class="carousel-indicator w-3 h-3 rounded-full bg-white bg-opacity-50 hover:bg-opacity-100 transition-smooth"></button>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-40 flex space-x-3">
+            <button onclick="goToSlide(0)" class="carousel-indicator w-12 h-1 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300 active"></button>
+            <button onclick="goToSlide(1)" class="carousel-indicator w-12 h-1 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300"></button>
+            <button onclick="goToSlide(2)" class="carousel-indicator w-12 h-1 rounded-full bg-white/30 hover:bg-white/60 transition-all duration-300"></button>
         </div>
     </section>
 
@@ -660,7 +698,14 @@
             if (n < 0) currentSlide = slides.length - 1;
             
             slides[currentSlide].classList.add('active');
-            indicators[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.replace('bg-white/30', 'bg-white');
+            
+            // Reset others
+            indicators.forEach((ind, index) => {
+                if (index !== currentSlide) {
+                    ind.classList.replace('bg-white', 'bg-white/30');
+                }
+            });
         }
 
         function nextSlide() {

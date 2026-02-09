@@ -229,7 +229,7 @@ POST /api/heroes
 
 ```
 Host: MongoDB Atlas (Cloud)
-Connection: mongodb+srv://akhildevps:Akhildev123@@2026-gemini.paguc3x.mongodb.net/
+Connection: mongodb+srv://username:pwd@@2026-gemini.paguc3x.mongodb.net/
 App Name: 2026-gemini
 ```
 

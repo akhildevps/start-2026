@@ -59,7 +59,7 @@
                              ↓
         ┌────────────────────────────────────────┐
         │      MONGODB ATLAS (Cloud)             │
-        │  mongodb+srv://akhildevps:...          │
+        │  user anem+srv://pwd:...          │
         │                                        │
         │  Collections:                          │
         │  ├── heroes                            │

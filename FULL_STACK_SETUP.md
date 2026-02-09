@@ -58,7 +58,7 @@ start-2026/
 ## MongoDB Connection
 
 ```
-mongodb+srv://akhildevps:Akhildev123@@2026-gemini.paguc3x.mongodb.net/?appName=2026-gemini
+mongodb+srv://username:pwd@@2026-gemini.paguc3x.mongodb.net/?appName=2026-gemini
 ```
 
 ## Installation & Setup

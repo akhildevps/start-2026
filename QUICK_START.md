@@ -54,8 +54,7 @@ npm start
 
 The MongoDB connection string is already configured:
 ```
-mongodb+srv://akhildevps:Akhildev123@@2026-gemini.paguc3x.mongodb.net/?appName=2026-gemini
-```
+
 
 No credentials needed - just start the servers!
 
