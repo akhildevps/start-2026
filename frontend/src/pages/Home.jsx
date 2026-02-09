@@ -39,8 +39,8 @@ const Home = () => {
     const isSectionHidden = (name) => getSection(name)?.hidden || false;
     const getSectionDisplayName = (name) => getSection(name)?.displayName || name.charAt(0).toUpperCase() + name.slice(1);
 
-    const siteName = masterConfig?.siteName || 'Sanctuary Cove';
-    const footerName = masterConfig?.footerName || 'Sanctuary Cove Footer';
+    const siteName = masterConfig?.siteName || 'NetZone';
+    const footerName = masterConfig?.footerName || 'NetZone Footer';
 
     if (loading) return <div className="text-center py-8">Loading...</div>;
 
