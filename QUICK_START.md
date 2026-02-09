@@ -1,4 +1,4 @@
-# Quick Start Guide - Sanctuary Cove Full Stack
+# Quick Start Guide - NetZone Full Stack
 
 ## 🚀 Prerequisites
 

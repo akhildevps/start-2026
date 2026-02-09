@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const masterConfigSchema = new mongoose.Schema({
-    siteName: { type: String, default: 'Sanctuary Cove' },
-    tabName: { type: String, default: 'Sanctuary Cove' },
-    footerName: { type: String, default: 'Sanctuary Cove Footer' },
+    siteName: { type: String, default: 'NetZone' },
+    tabName: { type: String, default: 'NetZone' },
+    footerName: { type: String, default: 'NetZone Footer' },
     iconUrl: { type: String }, // Favicon/site icon URL
     menuTabs: [{ type: String }],
     sections: [

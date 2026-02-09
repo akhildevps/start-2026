@@ -1,6 +1,6 @@
 # Architecture Overview
 
-## Full Stack Architecture - Sanctuary Cove
+## Full Stack Architecture - NetZone
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
