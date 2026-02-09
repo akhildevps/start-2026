@@ -40,6 +40,9 @@ app.use(cors(corsOptions));
 app.use('/images', express.static(path.join(__dirname, '../images')));
 
 // Connect to MongoDB
+if (!process.env.MONGODB_URI) {
+    console.error('❌ FATAL: MONGODB_URI is not defined in environment variables');
+}
 connectDB();
 
 // API Routes
