@@ -15,7 +15,7 @@ start-2026/  (Your GitHub repo)
 
 ---
 
-## 5️⃣ Quick Deployment Steps
+## 6️⃣ Quick Deployment Steps
 
 ### Step 1: Push to GitHub ✅
 ```bash
@@ -34,15 +34,29 @@ git push origin main
 2. Find your `start-2026` repo
 3. Click "Import"
 
-### Step 4: Add Environment Variable
-1. **Name:** `MONGODB_URI`
-2. **Value:** `mongodb+srv://sancove_user:PASSWORD@cluster.mongodb.net/?retryWrites=true&w=majority`
-   - Replace `sancove_user` and `PASSWORD` with your MongoDB credentials
-   - Get this from MongoDB Atlas
+### Step 4: Configure Settings (Should be Auto-Detected ✅)
+
+Vercel will auto-detect your monorepo setup. Verify:
+- **Framework Preset:** `Other` (custom monorepo)
+- **Root Directory:** Leave blank (monorepo detection)
+- **Node.js Version:** `18.x` or higher (OK to keep default)
+- **Build Command:** Auto-detected from `vercel.json`
+
+Everything should be automatic! If not, these settings are already configured in your `vercel.json` file.
+
+### Step 5: Add Environment Variable
+
+1. Click **Settings → Environment Variables**
+2. Add new variable:
+   - **Name:** `MONGODB_URI`
+   - **Value:** `mongodb+srv://sancove_user:PASSWORD@cluster.mongodb.net/?retryWrites=true&w=majority`
+     - Replace `sancove_user` and `PASSWORD` with your MongoDB credentials
+     - Get this from MongoDB Atlas
+   - **Environments:** Check `Production`
 
 3. Click "Deploy"
 
-### Step 5: Wait & Test
+### Step 6: Wait & Test
 - Deployment takes 3-5 minutes
 - You'll get a URL like `https://start-2026.vercel.app`
 - Test it!
