@@ -77,7 +77,7 @@ export const HeroSection = () => {
 
     return (
         <section id="heroes" className="hero-section">
-            <h1 className="text-4xl font-bold">Welcome to NetZone</h1>
+            <h1 className="text-4xl font-bold">Welcome to Sanctuary Cove</h1>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
                 {heroes.map((hero) => (
                     !hero.hidden && (

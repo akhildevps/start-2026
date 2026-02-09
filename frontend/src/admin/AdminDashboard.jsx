@@ -351,7 +351,7 @@ const AdminDashboard = () => {
                             <label className="block text-sm text-gray-300">Site Name</label>
                             <input type="text" value={masterConfig?.siteName || ''} onChange={(e)=> setMasterConfig({...masterConfig, siteName: e.target.value})} className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-white" />
                             <label className="block text-sm text-gray-300">Browser Tab Name</label>
-                            <input type="text" value={masterConfig?.tabName || ''} onChange={(e)=> setMasterConfig({...masterConfig, tabName: e.target.value})} placeholder="e.g., NetZone Admin" className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-white" />
+                            <input type="text" value={masterConfig?.tabName || ''} onChange={(e)=> setMasterConfig({...masterConfig, tabName: e.target.value})} placeholder="e.g., Sanctuary Cove Admin" className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-white" />
                             <label className="block text-sm text-gray-300">Site Icon URL (Favicon)</label>
                             <input type="text" value={masterConfig?.iconUrl || ''} onChange={(e)=> setMasterConfig({...masterConfig, iconUrl: e.target.value})} placeholder="https://example.com/icon.png" className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded text-white" />
                             {masterConfig?.iconUrl && (

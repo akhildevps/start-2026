@@ -1,4 +1,4 @@
-# 🚀 Deployment Guide - NetZone Booking App
+# 🚀 Deployment Guide - Sanctuary Cove Booking App
 
 This guide covers deploying your full-stack accommodation booking app to production using cost-friendly, easy-to-manage services.
 

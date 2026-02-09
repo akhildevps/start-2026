@@ -1,7 +1,7 @@
 {
   "name": "sanctuary-cove-backend",
   "version": "1.0.0",
-  "description": "NetZone Resort Backend API",
+  "description": "Sanctuary Cove Resort Backend API",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

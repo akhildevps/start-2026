@@ -2,7 +2,7 @@
 
 ## What Has Been Built
 
-Your NetZone project has been successfully restructured into a modern full-stack application with:
+Your Sanctuary Cove project has been successfully restructured into a modern full-stack application with:
 
 ### ✅ **Backend (Node.js + Express.js)**
 

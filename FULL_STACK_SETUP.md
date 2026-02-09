@@ -1,4 +1,4 @@
-# NetZone - Full Stack Application
+# Sanctuary Cove - Full Stack Application
 
 A modern, dynamic luxury resort website with Node.js backend, React frontend, and MongoDB database.
 
@@ -256,4 +256,4 @@ Frontend will run on `http://localhost:3000`
 
 ## License
 
-MIT License - 2026 NetZone
+MIT License - 2026 Sanctuary Cove
