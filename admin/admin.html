@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanctuary Cove - Admin Dashboard</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Admin Navigation -->
+    <nav class="bg-gray-900 text-white sticky top-0 z-40 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <svg class="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10.5 1.5H3.75A2.25 2.25 0 001.5 3.75v12.5A2.25 2.25 0 003.75 18.5h12.5a2.25 2.25 0 002.25-2.25V9.5m-15-4h15m-15 4v11m0-11l4.5 4.5m0-4.5l-4.5 4.5"></path>
+                    </svg>
+                    <h1 class="text-2xl font-bold">Sanctuary Cove Admin</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="../index.html" class="text-gray-300 hover:text-white transition-smooth">
+                        View Site
+                    </a>
+                    <button onclick="alert('Logout functionality would be implemented here')" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded transition-smooth">
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header Section -->
+        <div class="mb-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-2">Dashboard</h2>
+            <p class="text-gray-600">Manage and control visibility of website sections</p>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 bg-blue-100 rounded-lg mr-4">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-gray-600 text-sm">Total Sections</p>
+                        <p class="text-2xl font-bold text-gray-900" id="totalSections">6</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 bg-green-100 rounded-lg mr-4">
+                        <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-gray-600 text-sm">Active Sections</p>
+                        <p class="text-2xl font-bold text-green-600" id="activeSections">6</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 bg-red-100 rounded-lg mr-4">
+                        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.658 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-gray-600 text-sm">Hidden Sections</p>
+                        <p class="text-2xl font-bold text-red-600" id="hiddenSections">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-3 bg-purple-100 rounded-lg mr-4">
+                        <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-gray-600 text-sm">Last Modified</p>
+                        <p class="text-2xl font-bold text-purple-600" id="lastModified">Today</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sections Management -->
+        <div class="space-y-6">
+            <!-- Hero Slider Section -->
+            <div class="section-card bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="p-2 bg-blue-100 rounded">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Hero Slider</h3>
+                            <p class="text-sm text-gray-600">Full-screen carousel with 3 slides</p>
+                        </div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked onchange="toggleSection(this, 'hero')">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div id="heroItems" class="mb-4 max-h-48 overflow-y-auto"></div>
+                <div class="grid grid-cols-4 gap-2 mt-4">
+                    <button class="crud-action-btn bg-blue-50 hover:bg-blue-100 text-blue-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="viewSection('hero')">
+                        <span class="text-lg">👁️</span> View
+                    </button>
+                    <button class="crud-action-btn bg-green-50 hover:bg-green-100 text-green-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="editItem('hero')">
+                        <span class="text-lg">✏️</span> Edit
+                    </button>
+                    <button class="crud-action-btn bg-yellow-50 hover:bg-yellow-100 text-yellow-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="openAddModal('hero')">
+                        <span class="text-lg">➕</span> Add
+                    </button>
+                    <button class="crud-action-btn bg-red-50 hover:bg-red-100 text-red-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="deleteSection('hero')">
+                        <span class="text-lg">🗑️</span> Delete
+                    </button>
+                </div>
+            </div>
+
+            <!-- Features Grid Section -->
+            <div class="section-card bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="p-2 bg-purple-100 rounded">
+                            <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Resort Highlights</h3>
+                            <p class="text-sm text-gray-600">3-column grid with features</p>
+                        </div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked onchange="toggleSection(this, 'features')">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div id="featuresItems" class="mb-4 max-h-48 overflow-y-auto"></div>
+                <div class="grid grid-cols-4 gap-2 mt-4">
+                    <button class="crud-action-btn bg-blue-50 hover:bg-blue-100 text-blue-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="viewSection('features')">
+                        <span class="text-lg">👁️</span> View
+                    </button>
+                    <button class="crud-action-btn bg-green-50 hover:bg-green-100 text-green-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="editItem('features')">
+                        <span class="text-lg">✏️</span> Edit
+                    </button>
+                    <button class="crud-action-btn bg-yellow-50 hover:bg-yellow-100 text-yellow-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="openAddModal('features')">
+                        <span class="text-lg">➕</span> Add
+                    </button>
+                    <button class="crud-action-btn bg-red-50 hover:bg-red-100 text-red-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="deleteSection('features')">
+                        <span class="text-lg">🗑️</span> Delete
+                    </button>
+                </div>
+            </div>
+
+            <!-- Accommodations Section -->
+            <div class="section-card bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="p-2 bg-pink-100 rounded">
+                            <svg class="w-6 h-6 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Luxury Accommodations</h3>
+                            <p class="text-sm text-gray-600">Horizontal carousel with 4 room types</p>
+                        </div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked onchange="toggleSection(this, 'accommodations')">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div id="accommodationsItems" class="mb-4 max-h-48 overflow-y-auto"></div>
+                <div class="grid grid-cols-4 gap-2 mt-4">
+                    <button class="crud-action-btn bg-blue-50 hover:bg-blue-100 text-blue-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="viewSection('accommodations')">
+                        <span class="text-lg">👁️</span> View
+                    </button>
+                    <button class="crud-action-btn bg-green-50 hover:bg-green-100 text-green-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="editItem('accommodations')">
+                        <span class="text-lg">✏️</span> Edit
+                    </button>
+                    <button class="crud-action-btn bg-yellow-50 hover:bg-yellow-100 text-yellow-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="openAddModal('accommodations')">
+                        <span class="text-lg">➕</span> Add
+                    </button>
+                    <button class="crud-action-btn bg-red-50 hover:bg-red-100 text-red-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="deleteSection('accommodations')">
+                        <span class="text-lg">🗑️</span> Delete
+                    </button>
+                </div>
+            </div>
+
+            <!-- Amenities Section -->
+            <div class="section-card bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="p-2 bg-indigo-100 rounded">
+                            <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Amenities</h3>
+                            <p class="text-sm text-gray-600">Spa & Activities with split layout</p>
+                        </div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked onchange="toggleSection(this, 'amenities')">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div id="amenitiesItems" class="mb-4 max-h-48 overflow-y-auto"></div>
+                <div class="grid grid-cols-4 gap-2 mt-4">
+                    <button class="crud-action-btn bg-blue-50 hover:bg-blue-100 text-blue-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="viewSection('amenities')">
+                        <span class="text-lg">👁️</span> View
+                    </button>
+                    <button class="crud-action-btn bg-green-50 hover:bg-green-100 text-green-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="editItem('amenities')">
+                        <span class="text-lg">✏️</span> Edit
+                    </button>
+                    <button class="crud-action-btn bg-yellow-50 hover:bg-yellow-100 text-yellow-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="openAddModal('amenities')">
+                        <span class="text-lg">➕</span> Add
+                    </button>
+                    <button class="crud-action-btn bg-red-50 hover:bg-red-100 text-red-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="deleteSection('amenities')">
+                        <span class="text-lg">🗑️</span> Delete
+                    </button>
+                </div>
+            </div>
+
+            <!-- Booking Section -->
+            <div class="section-card bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="p-2 bg-orange-100 rounded">
+                            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Contact & Booking</h3>
+                            <p class="text-sm text-gray-600">Contact form and booking section</p>
+                        </div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked onchange="toggleSection(this, 'booking')">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div id="bookingItems" class="mb-4 max-h-48 overflow-y-auto"></div>
+                <div class="grid grid-cols-4 gap-2 mt-4">
+                    <button class="crud-action-btn bg-blue-50 hover:bg-blue-100 text-blue-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="viewSection('booking')">
+                        <span class="text-lg">👁️</span> View
+                    </button>
+                    <button class="crud-action-btn bg-green-50 hover:bg-green-100 text-green-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="editItem('booking')">
+                        <span class="text-lg">✏️</span> Edit
+                    </button>
+                    <button class="crud-action-btn bg-yellow-50 hover:bg-yellow-100 text-yellow-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="openAddModal('booking')">
+                        <span class="text-lg">➕</span> Add
+                    </button>
+                    <button class="crud-action-btn bg-red-50 hover:bg-red-100 text-red-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="deleteSection('booking')">
+                        <span class="text-lg">🗑️</span> Delete
+                    </button>
+                </div>
+            </div>
+
+            <!-- Footer Section -->
+            <div class="section-card bg-white rounded-lg shadow p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="p-2 bg-gray-100 rounded">
+                            <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900">Footer</h3>
+                            <p class="text-sm text-gray-600">Footer with links and newsletter</p>
+                        </div>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" checked onchange="toggleSection(this, 'footer')">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div id="footerItems" class="mb-4 max-h-48 overflow-y-auto"></div>
+                <div class="grid grid-cols-4 gap-2 mt-4">
+                    <button class="crud-action-btn bg-blue-50 hover:bg-blue-100 text-blue-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="viewSection('footer')">
+                        <span class="text-lg">👁️</span> View
+                    </button>
+                    <button class="crud-action-btn bg-green-50 hover:bg-green-100 text-green-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="editItem('footer')">
+                        <span class="text-lg">✏️</span> Edit
+                    </button>
+                    <button class="crud-action-btn bg-yellow-50 hover:bg-yellow-100 text-yellow-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="openAddModal('footer')">
+                        <span class="text-lg">➕</span> Add
+                    </button>
+                    <button class="crud-action-btn bg-red-50 hover:bg-red-100 text-red-600 px-3 py-2 rounded text-sm font-medium transition-smooth" onclick="deleteSection('footer')">
+                        <span class="text-lg">🗑️</span> Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="mt-8 flex gap-4">
+            <button onclick="publishChanges()" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-smooth">
+                📤 Publish Changes
+            </button>
+            <button onclick="resetToDefault()" class="px-6 py-3 bg-gray-600 hover:bg-gray-700 text-white rounded-lg font-semibold transition-smooth">
+                🔄 Reset to Default
+            </button>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    
+    <!-- Hero Slider Modal -->
+    <div id="heroModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="text-xl font-bold">Manage Hero Slides</h2>
+                <button onclick="closeModal('heroModal')" class="text-gray-600 hover:text-gray-900 text-2xl">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="heroList" class="item-list"></div>
+                <div class="form-group mt-4">
+                    <label class="form-label">Title</label>
+                    <input type="text" id="heroTitle" class="form-input" placeholder="Enter slide title">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Subtitle</label>
+                    <input type="text" id="heroSubtitle" class="form-input" placeholder="Enter slide subtitle">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Image</label>
+                    <input type="file" id="heroImage" class="form-input" accept="image/*" onchange="previewImage(this, 'heroPreview')">
+                    <img id="heroPreview" class="image-preview" style="display:none;">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('heroModal')" class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded transition-smooth">Cancel</button>
+                <button onclick="saveHeroItem()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded transition-smooth">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Modal -->
+    <div id="featuresModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="text-xl font-bold">Manage Features</h2>
+                <button onclick="closeModal('featuresModal')" class="text-gray-600 hover:text-gray-900 text-2xl">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="featuresList" class="item-list"></div>
+                <div class="form-group mt-4">
+                    <label class="form-label">Feature Title</label>
+                    <input type="text" id="featureTitle" class="form-input" placeholder="Enter feature title">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Feature Description</label>
+                    <textarea id="featureDesc" class="form-textarea" placeholder="Enter feature description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Icon</label>
+                    <input type="text" id="featureIcon" class="form-input" placeholder="e.g., 🏖️ or ⭐">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('featuresModal')" class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded transition-smooth">Cancel</button>
+                <button onclick="saveFeatureItem()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded transition-smooth">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Accommodations Modal -->
+    <div id="accommodationsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="text-xl font-bold">Manage Accommodations</h2>
+                <button onclick="closeModal('accommodationsModal')" class="text-gray-600 hover:text-gray-900 text-2xl">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="accommodationsList" class="item-list"></div>
+                <div class="form-group mt-4">
+                    <label class="form-label">Room Type</label>
+                    <input type="text" id="roomType" class="form-input" placeholder="e.g., Beachfront Suite">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Price per Night</label>
+                    <input type="text" id="roomPrice" class="form-input" placeholder="e.g., $450">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea id="roomDesc" class="form-textarea" placeholder="Enter room description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Room Image</label>
+                    <input type="file" id="roomImage" class="form-input" accept="image/*" onchange="previewImage(this, 'roomPreview')">
+                    <img id="roomPreview" class="image-preview" style="display:none;">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('accommodationsModal')" class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded transition-smooth">Cancel</button>
+                <button onclick="saveAccommodationItem()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded transition-smooth">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Amenities Modal -->
+    <div id="amenitiesModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="text-xl font-bold">Manage Amenities</h2>
+                <button onclick="closeModal('amenitiesModal')" class="text-gray-600 hover:text-gray-900 text-2xl">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="amenitiesList" class="item-list"></div>
+                <div class="form-group mt-4">
+                    <label class="form-label">Amenity Name</label>
+                    <input type="text" id="amenityName" class="form-input" placeholder="e.g., Spa & Wellness">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea id="amenityDesc" class="form-textarea" placeholder="Enter amenity description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Amenity Image</label>
+                    <input type="file" id="amenityImage" class="form-input" accept="image/*" onchange="previewImage(this, 'amenityPreview')">
+                    <img id="amenityPreview" class="image-preview" style="display:none;">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('amenitiesModal')" class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded transition-smooth">Cancel</button>
+                <button onclick="saveAmenityItem()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded transition-smooth">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="text-xl font-bold">Manage Booking Info</h2>
+                <button onclick="closeModal('bookingModal')" class="text-gray-600 hover:text-gray-900 text-2xl">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="bookingList" class="item-list"></div>
+                <div class="form-group mt-4">
+                    <label class="form-label">Contact Email</label>
+                    <input type="email" id="bookingEmail" class="form-input" placeholder="Enter contact email">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" id="bookingPhone" class="form-input" placeholder="Enter phone number">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Address</label>
+                    <textarea id="bookingAddress" class="form-textarea" placeholder="Enter address"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('bookingModal')" class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded transition-smooth">Cancel</button>
+                <button onclick="saveBookingItem()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded transition-smooth">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Modal -->
+    <div id="footerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="text-xl font-bold">Manage Footer Links</h2>
+                <button onclick="closeModal('footerModal')" class="text-gray-600 hover:text-gray-900 text-2xl">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="footerList" class="item-list"></div>
+                <div class="form-group mt-4">
+                    <label class="form-label">Link Title</label>
+                    <input type="text" id="footerTitle" class="form-input" placeholder="e.g., Privacy Policy">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Link URL</label>
+                    <input type="text" id="footerURL" class="form-input" placeholder="e.g., /privacy">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('footerModal')" class="px-4 py-2 bg-gray-300 hover:bg-gray-400 rounded transition-smooth">Cancel</button>
+                <button onclick="saveFooterItem()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded transition-smooth">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Default data for sections
+        const defaultData = {
+            hero: [
+                { id: 1, title: 'Welcome to Paradise', subtitle: 'Experience Luxury', image: null }
+            ],
+            features: [
+                { id: 1, title: '5-Star Service', description: 'Premium accommodation', icon: '⭐' },
+                { id: 2, title: 'Ocean View', description: 'Stunning panoramic views', icon: '🌊' },
+                { id: 3, title: 'World-Class Dining', description: 'Michelin-starred chefs', icon: '🍽️' }
+            ],
+            accommodations: [
+                { id: 1, type: 'Beachfront Suite', price: '$450/night', description: 'Direct ocean access', image: null },
+                { id: 2, type: 'Ocean Villa', price: '$650/night', description: 'Private infinity pool', image: null }
+            ],
+            amenities: [
+                { id: 1, name: 'Spa & Wellness', description: 'Full-service spa facility', image: null },
+                { id: 2, name: 'Water Sports', description: 'Diving and sailing activities', image: null }
+            ],
+            booking: [
+                { id: 1, email: 'reservations@sanctuarycove.com', phone: '+1-800-RESORT-1', address: '123 Island Paradise, Caribbean' }
+            ],
+            footer: [
+                { id: 1, title: 'About Us', url: '#about' },
+                { id: 2, title: 'Contact', url: '#contact' },
+                { id: 3, title: 'Privacy', url: '#privacy' }
+            ]
+        };
+
+        let currentEditingSection = null;
+        let currentEditingId = null;
+
+        // Initialize data from localStorage
+        function initializeData() {
+            const stored = localStorage.getItem('sectionData');
+            if (!stored) {
+                localStorage.setItem('sectionData', JSON.stringify(defaultData));
+            }
+            initializeSections();
+            loadAllSectionItems();
+        }
+
+        // Load and display items for all sections
+        function loadAllSectionItems() {
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            displayHeroItems(data.hero);
+            displayFeaturesItems(data.features);
+            displayAccommodationsItems(data.accommodations);
+            displayAmenitiesItems(data.amenities);
+            displayBookingItems(data.booking);
+            displayFooterItems(data.footer);
+        }
+
+        // Display hero items
+        function displayHeroItems(items) {
+            const container = document.getElementById('heroItems');
+            if (!items || items.length === 0) {
+                container.innerHTML = '<div class="empty-state">No slides yet</div>';
+                return;
+            }
+            container.innerHTML = items.map(item => `
+                <div class="item-card ${item.hidden ? 'item-hidden' : ''}">
+                    <div class="item-card-header">
+                        <div>
+                            <div class="item-card-title">${item.title}</div>
+                            <div class="text-sm text-gray-600">${item.subtitle || 'No subtitle'}</div>
+                        </div>
+                        <div class="item-actions">
+                            <label class="item-visibility-toggle" title="Toggle visibility">
+                                <input type="checkbox" ${!item.hidden ? 'checked' : ''} onchange="toggleItemVisibility('hero', ${item.id}, this)">
+                                <span class="item-visibility-slider"></span>
+                            </label>
+                            <button class="btn-edit" onclick="editHeroItem(${item.id})">Edit</button>
+                            <button class="btn-delete" onclick="deleteHeroItem(${item.id})">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Display features items
+        function displayFeaturesItems(items) {
+            const container = document.getElementById('featuresItems');
+            if (!items || items.length === 0) {
+                container.innerHTML = '<div class="empty-state">No features yet</div>';
+                return;
+            }
+            container.innerHTML = items.map(item => `
+                <div class="item-card ${item.hidden ? 'item-hidden' : ''}">
+                    <div class="item-card-header">
+                        <div>
+                            <div class="item-card-title">${item.icon} ${item.title}</div>
+                            <div class="text-sm text-gray-600">${item.description}</div>
+                        </div>
+                        <div class="item-actions">
+                            <label class="item-visibility-toggle" title="Toggle visibility">
+                                <input type="checkbox" ${!item.hidden ? 'checked' : ''} onchange="toggleItemVisibility('features', ${item.id}, this)">
+                                <span class="item-visibility-slider"></span>
+                            </label>
+                            <button class="btn-edit" onclick="editFeatureItem(${item.id})">Edit</button>
+                            <button class="btn-delete" onclick="deleteFeatureItem(${item.id})">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Display accommodations items
+        function displayAccommodationsItems(items) {
+            const container = document.getElementById('accommodationsItems');
+            if (!items || items.length === 0) {
+                container.innerHTML = '<div class="empty-state">No rooms yet</div>';
+                return;
+            }
+            container.innerHTML = items.map(item => `
+                <div class="item-card ${item.hidden ? 'item-hidden' : ''}">
+                    <div class="item-card-header">
+                        <div>
+                            <div class="item-card-title">${item.type}</div>
+                            <div class="text-sm text-gray-600">${item.price}</div>
+                            <div class="text-xs text-gray-500">${item.description}</div>
+                        </div>
+                        <div class="item-actions">
+                            <label class="item-visibility-toggle" title="Toggle visibility">
+                                <input type="checkbox" ${!item.hidden ? 'checked' : ''} onchange="toggleItemVisibility('accommodations', ${item.id}, this)">
+                                <span class="item-visibility-slider"></span>
+                            </label>
+                            <button class="btn-edit" onclick="editAccommodationItem(${item.id})">Edit</button>
+                            <button class="btn-delete" onclick="deleteAccommodationItem(${item.id})">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Display amenities items
+        function displayAmenitiesItems(items) {
+            const container = document.getElementById('amenitiesItems');
+            if (!items || items.length === 0) {
+                container.innerHTML = '<div class="empty-state">No amenities yet</div>';
+                return;
+            }
+            container.innerHTML = items.map(item => `
+                <div class="item-card ${item.hidden ? 'item-hidden' : ''}">
+                    <div class="item-card-header">
+                        <div>
+                            <div class="item-card-title">${item.name}</div>
+                            <div class="text-sm text-gray-600">${item.description}</div>
+                        </div>
+                        <div class="item-actions">
+                            <label class="item-visibility-toggle" title="Toggle visibility">
+                                <input type="checkbox" ${!item.hidden ? 'checked' : ''} onchange="toggleItemVisibility('amenities', ${item.id}, this)">
+                                <span class="item-visibility-slider"></span>
+                            </label>
+                            <button class="btn-edit" onclick="editAmenityItem(${item.id})">Edit</button>
+                            <button class="btn-delete" onclick="deleteAmenityItem(${item.id})">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Display booking items
+        function displayBookingItems(items) {
+            const container = document.getElementById('bookingItems');
+            if (!items || items.length === 0) {
+                container.innerHTML = '<div class="empty-state">No booking info yet</div>';
+                return;
+            }
+            container.innerHTML = items.map(item => `
+                <div class="item-card ${item.hidden ? 'item-hidden' : ''}">
+                    <div class="item-card-header">
+                        <div>
+                            <div class="item-card-title">Booking Information</div>
+                            <div class="text-sm text-gray-600">📧 ${item.email}</div>
+                            <div class="text-sm text-gray-600">📞 ${item.phone}</div>
+                        </div>
+                        <div class="item-actions">
+                            <label class="item-visibility-toggle" title="Toggle visibility">
+                                <input type="checkbox" ${!item.hidden ? 'checked' : ''} onchange="toggleItemVisibility('booking', ${item.id}, this)">
+                                <span class="item-visibility-slider"></span>
+                            </label>
+                            <button class="btn-edit" onclick="editBookingItem(${item.id})">Edit</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Display footer items
+        function displayFooterItems(items) {
+            const container = document.getElementById('footerItems');
+            if (!items || items.length === 0) {
+                container.innerHTML = '<div class="empty-state">No footer links yet</div>';
+                return;
+            }
+            container.innerHTML = items.map(item => `
+                <div class="item-card ${item.hidden ? 'item-hidden' : ''}">
+                    <div class="item-card-header">
+                        <div>
+                            <div class="item-card-title">${item.title}</div>
+                            <div class="text-sm text-gray-600">${item.url}</div>
+                        </div>
+                        <div class="item-actions">
+                            <label class="item-visibility-toggle" title="Toggle visibility">
+                                <input type="checkbox" ${!item.hidden ? 'checked' : ''} onchange="toggleItemVisibility('footer', ${item.id}, this)">
+                                <span class="item-visibility-slider"></span>
+                            </label>
+                            <button class="btn-edit" onclick="editFooterItem(${item.id})">Edit</button>
+                            <button class="btn-delete" onclick="deleteFooterItem(${item.id})">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Modal functions
+        function openAddModal(section) {
+            currentEditingSection = section;
+            currentEditingId = null;
+            
+            // Clear form fields
+            document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], textarea, input[type="file"]').forEach(el => {
+                el.value = '';
+            });
+            document.querySelectorAll('[id$="Preview"]').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            document.getElementById(section + 'Modal').classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        function previewImage(input, previewId) {
+            const preview = document.getElementById(previewId);
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // Toggle individual item visibility
+        function toggleItemVisibility(section, itemId, checkbox) {
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            const item = data[section].find(i => i.id === itemId);
+            if (item) {
+                item.hidden = !checkbox.checked;
+                localStorage.setItem('sectionData', JSON.stringify(data));
+                
+                // Refresh display
+                const displayFunction = {
+                    hero: displayHeroItems,
+                    features: displayFeaturesItems,
+                    accommodations: displayAccommodationsItems,
+                    amenities: displayAmenitiesItems,
+                    booking: displayBookingItems,
+                    footer: displayFooterItems
+                }[section];
+                
+                if (displayFunction) {
+                    displayFunction(data[section]);
+                }
+                
+                showNotification(checkbox.checked ? '✅ Item visible' : '👁️ Item hidden');
+            }
+        }
+
+        // Edit functions
+        function editHeroItem(id) {
+            currentEditingId = id;
+            openAddModal('hero');
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            const item = data.hero.find(h => h.id === id);
+            if (item) {
+                document.getElementById('heroTitle').value = item.title;
+                document.getElementById('heroSubtitle').value = item.subtitle;
+            }
+        }
+
+        function editFeatureItem(id) {
+            currentEditingId = id;
+            openAddModal('features');
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            const item = data.features.find(f => f.id === id);
+            if (item) {
+                document.getElementById('featureTitle').value = item.title;
+                document.getElementById('featureDesc').value = item.description;
+                document.getElementById('featureIcon').value = item.icon;
+            }
+        }
+
+        function editAccommodationItem(id) {
+            currentEditingId = id;
+            openAddModal('accommodations');
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            const item = data.accommodations.find(a => a.id === id);
+            if (item) {
+                document.getElementById('roomType').value = item.type;
+                document.getElementById('roomPrice').value = item.price;
+                document.getElementById('roomDesc').value = item.description;
+            }
+        }
+
+        function editAmenityItem(id) {
+            currentEditingId = id;
+            openAddModal('amenities');
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            const item = data.amenities.find(a => a.id === id);
+            if (item) {
+                document.getElementById('amenityName').value = item.name;
+                document.getElementById('amenityDesc').value = item.description;
+            }
+        }
+
+        function editBookingItem(id) {
+            currentEditingId = id;
+            openAddModal('booking');
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            const item = data.booking.find(b => b.id === id);
+            if (item) {
+                document.getElementById('bookingEmail').value = item.email;
+                document.getElementById('bookingPhone').value = item.phone;
+                document.getElementById('bookingAddress').value = item.address;
+            }
+        }
+
+        function editFooterItem(id) {
+            currentEditingId = id;
+            openAddModal('footer');
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            const item = data.footer.find(f => f.id === id);
+            if (item) {
+                document.getElementById('footerTitle').value = item.title;
+                document.getElementById('footerURL').value = item.url;
+            }
+        }
+
+        // Save functions
+        function saveHeroItem() {
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            const title = document.getElementById('heroTitle').value;
+            const subtitle = document.getElementById('heroSubtitle').value;
+            
+            if (!title) {
+                alert('Please enter a title');
+                return;
+            }
+
+            if (currentEditingId) {
+                const item = data.hero.find(h => h.id === currentEditingId);
+                if (item) {
+                    item.title = title;
+                    item.subtitle = subtitle;
+                }
+            } else {
+                const newId = Math.max(...data.hero.map(h => h.id), 0) + 1;
+                data.hero.push({ id: newId, title, subtitle, image: null });
+            }
+
+            localStorage.setItem('sectionData', JSON.stringify(data));
+            displayHeroItems(data.hero);
+            closeModal('heroModal');
+            showNotification('Hero slide saved successfully!');
+        }
+
+        function saveFeatureItem() {
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            const title = document.getElementById('featureTitle').value;
+            const description = document.getElementById('featureDesc').value;
+            const icon = document.getElementById('featureIcon').value;
+            
+            if (!title) {
+                alert('Please enter a title');
+                return;
+            }
+
+            if (currentEditingId) {
+                const item = data.features.find(f => f.id === currentEditingId);
+                if (item) {
+                    item.title = title;
+                    item.description = description;
+                    item.icon = icon;
+                }
+            } else {
+                const newId = Math.max(...data.features.map(f => f.id), 0) + 1;
+                data.features.push({ id: newId, title, description, icon });
+            }
+
+            localStorage.setItem('sectionData', JSON.stringify(data));
+            displayFeaturesItems(data.features);
+            closeModal('featuresModal');
+            showNotification('Feature saved successfully!');
+        }
+
+        function saveAccommodationItem() {
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            const type = document.getElementById('roomType').value;
+            const price = document.getElementById('roomPrice').value;
+            const description = document.getElementById('roomDesc').value;
+            
+            if (!type) {
+                alert('Please enter a room type');
+                return;
+            }
+
+            if (currentEditingId) {
+                const item = data.accommodations.find(a => a.id === currentEditingId);
+                if (item) {
+                    item.type = type;
+                    item.price = price;
+                    item.description = description;
+                }
+            } else {
+                const newId = Math.max(...data.accommodations.map(a => a.id), 0) + 1;
+                data.accommodations.push({ id: newId, type, price, description, image: null });
+            }
+
+            localStorage.setItem('sectionData', JSON.stringify(data));
+            displayAccommodationsItems(data.accommodations);
+            closeModal('accommodationsModal');
+            showNotification('Room saved successfully!');
+        }
+
+        function saveAmenityItem() {
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            const name = document.getElementById('amenityName').value;
+            const description = document.getElementById('amenityDesc').value;
+            
+            if (!name) {
+                alert('Please enter an amenity name');
+                return;
+            }
+
+            if (currentEditingId) {
+                const item = data.amenities.find(a => a.id === currentEditingId);
+                if (item) {
+                    item.name = name;
+                    item.description = description;
+                }
+            } else {
+                const newId = Math.max(...data.amenities.map(a => a.id), 0) + 1;
+                data.amenities.push({ id: newId, name, description, image: null });
+            }
+
+            localStorage.setItem('sectionData', JSON.stringify(data));
+            displayAmenitiesItems(data.amenities);
+            closeModal('amenitiesModal');
+            showNotification('Amenity saved successfully!');
+        }
+
+        function saveBookingItem() {
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            const email = document.getElementById('bookingEmail').value;
+            const phone = document.getElementById('bookingPhone').value;
+            const address = document.getElementById('bookingAddress').value;
+            
+            if (!email) {
+                alert('Please enter an email');
+                return;
+            }
+
+            if (currentEditingId) {
+                const item = data.booking.find(b => b.id === currentEditingId);
+                if (item) {
+                    item.email = email;
+                    item.phone = phone;
+                    item.address = address;
+                }
+            } else {
+                const newId = Math.max(...data.booking.map(b => b.id), 0) + 1;
+                data.booking.push({ id: newId, email, phone, address });
+            }
+
+            localStorage.setItem('sectionData', JSON.stringify(data));
+            displayBookingItems(data.booking);
+            closeModal('bookingModal');
+            showNotification('Booking info saved successfully!');
+        }
+
+        function saveFooterItem() {
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            const title = document.getElementById('footerTitle').value;
+            const url = document.getElementById('footerURL').value;
+            
+            if (!title || !url) {
+                alert('Please enter a title and URL');
+                return;
+            }
+
+            if (currentEditingId) {
+                const item = data.footer.find(f => f.id === currentEditingId);
+                if (item) {
+                    item.title = title;
+                    item.url = url;
+                }
+            } else {
+                const newId = Math.max(...data.footer.map(f => f.id), 0) + 1;
+                data.footer.push({ id: newId, title, url });
+            }
+
+            localStorage.setItem('sectionData', JSON.stringify(data));
+            displayFooterItems(data.footer);
+            closeModal('footerModal');
+            showNotification('Footer link saved successfully!');
+        }
+
+        // Delete functions
+        function deleteHeroItem(id) {
+            if (!confirm('Are you sure you want to delete this slide?')) return;
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            data.hero = data.hero.filter(h => h.id !== id);
+            localStorage.setItem('sectionData', JSON.stringify(data));
+            displayHeroItems(data.hero);
+            showNotification('Slide deleted successfully!');
+        }
+
+        function deleteFeatureItem(id) {
+            if (!confirm('Are you sure?')) return;
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            data.features = data.features.filter(f => f.id !== id);
+            localStorage.setItem('sectionData', JSON.stringify(data));
+            displayFeaturesItems(data.features);
+            showNotification('Feature deleted successfully!');
+        }
+
+        function deleteAccommodationItem(id) {
+            if (!confirm('Are you sure?')) return;
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            data.accommodations = data.accommodations.filter(a => a.id !== id);
+            localStorage.setItem('sectionData', JSON.stringify(data));
+            displayAccommodationsItems(data.accommodations);
+            showNotification('Room deleted successfully!');
+        }
+
+        function deleteAmenityItem(id) {
+            if (!confirm('Are you sure?')) return;
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            data.amenities = data.amenities.filter(a => a.id !== id);
+            localStorage.setItem('sectionData', JSON.stringify(data));
+            displayAmenitiesItems(data.amenities);
+            showNotification('Amenity deleted successfully!');
+        }
+
+        function deleteFooterItem(id) {
+            if (!confirm('Are you sure?')) return;
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            data.footer = data.footer.filter(f => f.id !== id);
+            localStorage.setItem('sectionData', JSON.stringify(data));
+            displayFooterItems(data.footer);
+            showNotification('Footer link deleted successfully!');
+        }
+
+        function deleteSection(section) {
+            if (!confirm('Are you sure you want to delete all items in this section?')) return;
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            data[section] = [];
+            localStorage.setItem('sectionData', JSON.stringify(data));
+            loadAllSectionItems();
+            showNotification('Section cleared successfully!');
+        }
+
+        function viewSection(section) {
+            openAddModal(section);
+        }
+
+        function editItem(section) {
+            const data = JSON.parse(localStorage.getItem('sectionData') || JSON.stringify(defaultData));
+            if (data[section] && data[section].length > 0) {
+                const firstItem = data[section][0];
+                if (section === 'hero') editHeroItem(firstItem.id);
+                else if (section === 'features') editFeatureItem(firstItem.id);
+                else if (section === 'accommodations') editAccommodationItem(firstItem.id);
+                else if (section === 'amenities') editAmenityItem(firstItem.id);
+                else if (section === 'booking') editBookingItem(firstItem.id);
+                else if (section === 'footer') editFooterItem(firstItem.id);
+            } else {
+                openAddModal(section);
+            }
+        }
+
+        // Show notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-green-600 text-white px-4 py-2 rounded shadow-lg';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Toggle section visibility
+        function toggleSection(checkbox, sectionName) {
+            const visibility = JSON.parse(localStorage.getItem('sectionVisibility') || '{}');
+            visibility[sectionName] = checkbox.checked;
+            localStorage.setItem('sectionVisibility', JSON.stringify(visibility));
+            
+            // Visual feedback
+            const card = checkbox.closest('.section-card');
+            if (checkbox.checked) {
+                card.classList.remove('section-hidden');
+            } else {
+                card.classList.add('section-hidden');
+            }
+            
+            updateStats();
+            showNotification(`${sectionName} section ${checkbox.checked ? 'shown' : 'hidden'}`);
+        }
+
+        // Update statistics
+        function updateStats() {
+            const visibility = JSON.parse(localStorage.getItem('sectionVisibility') || '{}');
+            const sections = ['hero', 'features', 'accommodations', 'amenities', 'booking', 'footer'];
+            
+            const active = sections.filter(s => visibility[s] !== false).length;
+            const hidden = sections.length - active;
+            
+            document.getElementById('totalSections').textContent = sections.length;
+            document.getElementById('activeSections').textContent = active;
+            document.getElementById('hiddenSections').textContent = hidden;
+            document.getElementById('lastModified').textContent = new Date().toLocaleDateString();
+        }
+
+        // Initialize section visibility from localStorage
+        function initializeSections() {
+            const sections = ['hero', 'features', 'accommodations', 'amenities', 'booking', 'footer'];
+            const stored = localStorage.getItem('sectionVisibility');
+            const visibility = stored ? JSON.parse(stored) : {};
+            
+            sections.forEach((section, index) => {
+                const checkbox = document.querySelectorAll('input[type="checkbox"]')[index];
+                if (checkbox) {
+                    const isVisible = visibility[section] !== false;
+                    checkbox.checked = isVisible;
+                }
+            });
+            
+            updateStats();
+        }
+
+        // Publish changes
+        function publishChanges() {
+            alert('✅ Changes published successfully!\n\nYour section data and visibility settings have been saved to localStorage.');
+        }
+
+        // Reset to default
+        function resetToDefault() {
+            if (confirm('Are you sure you want to reset all sections to default?')) {
+                localStorage.removeItem('sectionData');
+                localStorage.removeItem('sectionVisibility');
+                location.reload();
+            }
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+            }
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initializeData);
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+    </script>
+</body>
+</html>

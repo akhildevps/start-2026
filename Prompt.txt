@@ -1,0 +1,27 @@
+Project prompt (use with an LLM)
+
+Goal: Build a full-stack accommodation/booking web app with an admin panel.
+Stack: Node.js + Express backend (REST API), MongoDB (or chosen DB), React frontend (Vite/Create React App) with Tailwind CSS for styles, file upload for images.
+Backend responsibilities:
+Models: Accommodation, Amenity, Booking, Feature, Footer, Hero, Section.
+Controllers & routes for CRUD on each model plus upload handling.
+Database config and middleware (validation, error handling).
+Expose REST endpoints: /api/accommodations, /api/amenities, /api/bookings, /api/features, /api/footer, /api/hero, /api/sections, /api/upload.
+Frontend responsibilities:
+Pages: Home (listings, hero, sections), Admin dashboard (manage content and bookings).
+Components: Reusable page components, forms for create/update, image upload integration with backend.
+Services: api.js to call backend endpoints.
+Styling: Tailwind + custom CSS; ensure responsive layout.
+Dev & run:
+Backend: npm install → node server.js (or npm run dev with nodemon). Port 5000.
+Frontend: npm install → npm start (or npm run dev). Port 3000.
+Constraints & expectations:
+Keep REST contracts stable; return JSON with clear success/error shapes.
+Validate inputs and handle file uploads securely (size/type checks).
+Provide seeding or sample data for development.
+Make admin UI minimal but functional (list, create, edit, delete).
+Deliverables:
+Full repo with backend and frontend, README with run steps, minimal seed data, and working image upload.
+Optional extras (ask the model to include if wanted): auth for admin, pagination, search, deployment instructions (Heroku/Vercel), basic tests.
+Example single-shot instruction to paste to an LLM:
+"Create a full-stack accommodation booking app with Node/Express backend (MongoDB), REST CRUD controllers and file upload endpoints, and a React + Tailwind frontend with a public Home page and an Admin dashboard. Mirror the models: Accommodation, Amenity, Booking, Feature, Footer, Hero, Section. Include run instructions, sample data, and a simple api.js service for frontend API calls. Keep APIs JSON-based and ports default to 5000 (backend) and 3000 (frontend)."s
