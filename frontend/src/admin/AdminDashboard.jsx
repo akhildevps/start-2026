@@ -380,28 +380,24 @@ const AdminDashboard = () => {
                                         {/* Section Name Header */}
                                         <div className="flex items-center justify-between">
                                             <h4 className="text-white font-bold uppercase text-sm">{sec.name}</h4>
-                                            <div className="flex gap-1">
-                                                <button
-                                                    onClick={async () => {
-                                                        await masterConfigAPI.updateSection(sec.name, { hideFromMenu: !sec.hideFromMenu });
+                                            {/* Toggle Switch */}
+                                            <label className="flex items-center cursor-pointer">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={!sec.hidden}
+                                                    onChange={async (e) => {
+                                                        await masterConfigAPI.updateSection(sec.name, { hidden: !e.target.checked });
                                                         fetchAllData();
                                                     }}
-                                                    className={`px-2 py-1 rounded text-xs font-semibold ${sec.hideFromMenu ? 'bg-yellow-600 hover:bg-yellow-700' : 'bg-gray-600 hover:bg-gray-700'} text-white`}
-                                                    title={sec.hideFromMenu ? 'Hidden from menu' : 'Visible in menu'}
-                                                >
-                                                    {sec.hideFromMenu ? '🔒' : '🔓'}
-                                                </button>
-                                                <button
-                                                    onClick={async () => {
-                                                        await masterConfigAPI.updateSection(sec.name, { hidden: !sec.hidden });
-                                                        fetchAllData();
-                                                    }}
-                                                    className={`px-2 py-1 rounded text-xs font-semibold ${sec.hidden ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'} text-white`}
-                                                    title={sec.hidden ? 'Hidden completely' : 'Visible'}
-                                                >
-                                                    {sec.hidden ? '❌' : '✅'}
-                                                </button>
-                                            </div>
+                                                    className="sr-only"
+                                                />
+                                                <div className={`w-12 h-6 rounded-full transition-colors ${!sec.hidden ? 'bg-green-600' : 'bg-red-600'}`}>
+                                                    <div className={`w-5 h-5 rounded-full bg-white transition-transform ${!sec.hidden ? 'translate-x-6' : 'translate-x-0.5'} mt-0.5`}></div>
+                                                </div>
+                                                <span className="ml-2 text-xs font-semibold text-white">
+                                                    {!sec.hidden ? 'Show' : 'Hide'}
+                                                </span>
+                                            </label>
                                         </div>
 
                                         {/* Section Title */}

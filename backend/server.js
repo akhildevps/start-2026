@@ -56,10 +56,11 @@ app.use((err, req, res, next) => {
     res.status(500).json({ success: false, message: 'Internal server error' });
 });
 
-// 404 handler
+// 404 handler for API
 app.use((req, res) => {
     res.status(404).json({ success: false, message: 'Route not found' });
 });
+
 
 // Start server
 const PORT = process.env.PORT || 5000;
